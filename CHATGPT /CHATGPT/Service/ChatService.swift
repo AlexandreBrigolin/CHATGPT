@@ -13,7 +13,7 @@ class ChatService: ServiceManager {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let model):
-                    guard let text = model.choices.first?.text else {
+                    guard let text = model.choices?.first?.text else {
                         completion(.failure(.missingChoiseText))
                         return
                     }

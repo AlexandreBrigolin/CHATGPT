@@ -10,6 +10,7 @@ class ChatVC: UIViewController {
     
     var viewModel: ChatViewModel = ChatViewModel()
     var screen: ChatScreen?
+    var loadingView: LoadingView = LoadingView()
     
     override func loadView() {
         self.screen = ChatScreen()
@@ -25,6 +26,7 @@ class ChatVC: UIViewController {
         screen?.delegate(delegate: self)
         screen?.configTableView(delegate: self, dataSource: self)
         viewModel.delegate(delegate: self)
+        loadingView = LoadingView()
     }
     
     func vibrate() {
@@ -42,16 +44,19 @@ class ChatVC: UIViewController {
 
 extension ChatVC: ChatViewModelProtocol {
     func success() {
+        loadingView.hide()
         reloadTableView()
     }
     
     func error(message: String) {
+        loadingView.hide()
         reloadTableView()
     }
 }
 
 extension ChatVC: ChatScreenProtocol {
     func sendMessage(text: String) {
+        loadingView.show()
         viewModel.addMessage(message: text, type: .user)
         reloadTableView()
         viewModel.featchMessage(message: text)

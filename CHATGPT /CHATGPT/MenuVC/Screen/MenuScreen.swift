@@ -60,5 +60,4 @@ class MenuScreen: UIView {
             tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
-    
 }

@@ -11,6 +11,7 @@ import AVFoundation
 
 protocol ChatScreenProtocol: AnyObject {
     func sendMessage(text: String)
+    func searchImageMessage(text: String)
 }
 
 class ChatScreen: UIView {
@@ -49,6 +50,23 @@ class ChatScreen: UIView {
         btn.layer.shadowOpacity = 0.3
         btn.addTarget(self, action: #selector(self.tappedSendButton), for: .touchUpInside)
         btn.setImage(UIImage(named: "send"), for: .normal)
+        btn.isEnabled = false
+        btn.transform = .init(scaleX: 0.8, y: 0.8)
+        return btn
+    }()
+    
+    lazy var searchImageButton:UIButton = {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.backgroundColor = .pink
+        btn.layer.cornerRadius = 22.5
+        btn.layer.shadowColor = UIColor.pink.cgColor
+        btn.layer.shadowRadius = 10
+        btn.layer.shadowOffset = CGSize(width: 0, height: 5)
+        btn.layer.shadowOpacity = 0.3
+        btn.addTarget(self, action: #selector(self.tappedSearchImageButton), for: .touchUpInside)
+        btn.setImage(UIImage(systemName: "photo"), for: .normal)
+        btn.imageView?.tintColor = .white
         btn.isEnabled = false
         btn.transform = .init(scaleX: 0.8, y: 0.8)
         return btn
@@ -97,6 +115,7 @@ class ChatScreen: UIView {
         addSubview(tableView)
         addSubview(messageInputView)
         addSubview(sendButton)
+        addSubview(searchImageButton)
         messageInputView.addSubview(messageBarView)
         messageInputView.addSubview(inputMessageTextField)
     }
@@ -124,8 +143,13 @@ class ChatScreen: UIView {
             sendButton.widthAnchor.constraint(equalToConstant: 55),
             sendButton.bottomAnchor.constraint(equalTo: messageBarView.bottomAnchor, constant: -10),
             
+            searchImageButton.trailingAnchor.constraint(equalTo: sendButton.leadingAnchor, constant: 5),
+            searchImageButton.heightAnchor.constraint(equalToConstant: 55),
+            searchImageButton.widthAnchor.constraint(equalToConstant: 55),
+            searchImageButton.bottomAnchor.constraint(equalTo: messageBarView.bottomAnchor, constant: -10),
+
             inputMessageTextField.leadingAnchor.constraint(equalTo: messageBarView.leadingAnchor,constant: 20),
-            inputMessageTextField.trailingAnchor.constraint(equalTo: sendButton.leadingAnchor, constant: -5),
+            inputMessageTextField.trailingAnchor.constraint(equalTo: searchImageButton.leadingAnchor, constant: -5),
             inputMessageTextField.heightAnchor.constraint(equalToConstant: 45),
             inputMessageTextField.centerYAnchor.constraint(equalTo: messageBarView.centerYAnchor)
             
@@ -139,10 +163,25 @@ class ChatScreen: UIView {
         pushMessage()
     }
     
+    @objc func tappedSearchImageButton() {
+        searchImageButton.touchAnimation()
+        playSound()
+        delegate?.searchImageMessage(text: inputMessageTextField.text ?? "")
+        pushImageMessage()
+    }
+    
     private func pushMessage() {
         inputMessageTextField.text = ""
         sendButton.isEnabled = false
         sendButton.transform = .init(scaleX: 0.8, y: 0.8)
+        searchImageButton.transform = .init(scaleX: 0.8, y: 0.8)
+    }
+    
+    private func pushImageMessage() {
+        inputMessageTextField.text = ""
+        searchImageButton.isEnabled = false
+        searchImageButton.transform = .init(scaleX: 0.8, y: 0.8)
+        searchImageButton.transform = .init(scaleX: 0.8, y: 0.8)
     }
     
     private func playSound() {

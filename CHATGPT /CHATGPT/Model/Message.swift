@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum Status {
+    case message
+    case photo
+}
+
 enum TypeMessage {
     case user
     case chatGPT

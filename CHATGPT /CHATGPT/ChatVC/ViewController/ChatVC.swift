@@ -55,6 +55,13 @@ extension ChatVC: ChatViewModelProtocol {
 }
 
 extension ChatVC: ChatScreenProtocol {
+    func searchImageMessage(text: String) {
+        loadingView.show()
+        viewModel.addMessage(message: text, type: .user)
+        reloadTableView()
+        viewModel.featchMessage(message: text)
+    }
+    
     func sendMessage(text: String) {
         loadingView.show()
         viewModel.addMessage(message: text, type: .user)

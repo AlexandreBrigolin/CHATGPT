@@ -38,7 +38,7 @@ class ChatScreen: UIView {
         return view
     }()
     
-    lazy var sendButton:UIButton = {
+    lazy var sendButton: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.backgroundColor = .pink

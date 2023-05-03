@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0328AEBF2A02E40B00462C0D /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0328AEBE2A02E40B00462C0D /* MenuScreen.swift */; };
+		0328AEC12A02E44400462C0D /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0328AEC02A02E44400462C0D /* MenuVC.swift */; };
+		0328AEC32A02E49F00462C0D /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0328AEC22A02E49F00462C0D /* MenuViewModel.swift */; };
 		34DA655729A7DA8900A14740 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DA655629A7DA8900A14740 /* AppDelegate.swift */; };
 		34DA655929A7DA8900A14740 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DA655829A7DA8900A14740 /* SceneDelegate.swift */; };
 		34DA655B29A7DA8900A14740 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DA655A29A7DA8900A14740 /* ChatVC.swift */; };
@@ -31,6 +34,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0328AEBE2A02E40B00462C0D /* MenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
+		0328AEC02A02E44400462C0D /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		0328AEC22A02E49F00462C0D /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		34DA655329A7DA8900A14740 /* CHATGPT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHATGPT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34DA655629A7DA8900A14740 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34DA655829A7DA8900A14740 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +73,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0328AEBA2A02E3BC00462C0D /* MenuVC */ = {
+			isa = PBXGroup;
+			children = (
+				0328AEBD2A02E3E800462C0D /* ViewModel */,
+				0328AEBC2A02E3DC00462C0D /* ViewController */,
+				0328AEBB2A02E3D100462C0D /* Screen */,
+			);
+			path = MenuVC;
+			sourceTree = "<group>";
+		};
+		0328AEBB2A02E3D100462C0D /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				0328AEBE2A02E40B00462C0D /* MenuScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		0328AEBC2A02E3DC00462C0D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0328AEC02A02E44400462C0D /* MenuVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0328AEBD2A02E3E800462C0D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0328AEC22A02E49F00462C0D /* MenuViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		34DA654A29A7DA8900A14740 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +130,7 @@
 				34DA65B129AB847000A14740 /* Utils */,
 				34DA65AC29AB743C00A14740 /* Service */,
 				34DA65A529AB73C200A14740 /* ChatVC */,
+				0328AEBA2A02E3BC00462C0D /* MenuVC */,
 				3FC42EE02A01969F000F49B4 /* Load */,
 				34DA655629A7DA8900A14740 /* AppDelegate.swift */,
 				34DA655829A7DA8900A14740 /* SceneDelegate.swift */,
@@ -276,8 +317,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0328AEBF2A02E40B00462C0D /* MenuScreen.swift in Sources */,
 				34DA65BD29AB847000A14740 /* UIViewController+Extension.swift in Sources */,
 				34DA655B29A7DA8900A14740 /* ChatVC.swift in Sources */,
+				0328AEC32A02E49F00462C0D /* MenuViewModel.swift in Sources */,
 				34DA65A829AB740600A14740 /* ChatScreen.swift in Sources */,
 				34DA655729A7DA8900A14740 /* AppDelegate.swift in Sources */,
 				3FC42EE22A0196E1000F49B4 /* LoadingView.swift in Sources */,
@@ -293,6 +336,7 @@
 				34DA65C729ABF94A00A14740 /* Message.swift in Sources */,
 				34DA655929A7DA8900A14740 /* SceneDelegate.swift in Sources */,
 				34DA65BB29AB847000A14740 /* UIColor+Extension.swift in Sources */,
+				0328AEC12A02E44400462C0D /* MenuVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

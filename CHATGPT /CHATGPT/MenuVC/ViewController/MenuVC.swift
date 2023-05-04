@@ -25,8 +25,14 @@ class MenuVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.addLogoToNavigationBarItem(image: UIImage(named: "BF_Logo") ?? UIImage())
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrowshape.turn.up.backward"), style: .done, target: self, action: #selector(tappedBackButton))
+        navigationItem.leftBarButtonItem?.tintColor = .white
     }
     
+    @objc func tappedBackButton(){
+        print(#function)
+        self.navigationController?.popViewController(animated: true)
+    }
 
 }
 
@@ -42,7 +48,7 @@ extension MenuVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 60
     }
     
 }

@@ -25,6 +25,8 @@ class ChatVC: UIViewController {
     
     @objc func confgTapped(){
         print(#function)
+        let vc: MenuVC = MenuVC()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func viewDidLoad() {

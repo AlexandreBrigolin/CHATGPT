@@ -88,10 +88,10 @@
 		0380C62E2A041F47008E3F25 /* MenuVC */ = {
 			isa = PBXGroup;
 			children = (
-				0380C62F2A041F47008E3F25 /* ViewModel */,
 				0380C6312A041F47008E3F25 /* Cells */,
-				0380C6352A041F47008E3F25 /* Screen */,
+				0380C62F2A041F47008E3F25 /* ViewModel */,
 				0380C6372A041F47008E3F25 /* ViewController */,
+				0380C6352A041F47008E3F25 /* Screen */,
 			);
 			path = MenuVC;
 			sourceTree = "<group>";
@@ -164,11 +164,11 @@
 		34DA655529A7DA8900A14740 /* CHATGPT */ = {
 			isa = PBXGroup;
 			children = (
-				0380C62E2A041F47008E3F25 /* MenuVC */,
 				34DA65C529ABF92200A14740 /* Model */,
 				34DA65B129AB847000A14740 /* Utils */,
 				34DA65AC29AB743C00A14740 /* Service */,
 				34DA65A529AB73C200A14740 /* ChatVC */,
+				0380C62E2A041F47008E3F25 /* MenuVC */,
 				3FC42EE02A01969F000F49B4 /* Load */,
 				34DA655629A7DA8900A14740 /* AppDelegate.swift */,
 				34DA655829A7DA8900A14740 /* SceneDelegate.swift */,

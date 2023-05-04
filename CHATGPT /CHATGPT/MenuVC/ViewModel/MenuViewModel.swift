@@ -13,7 +13,7 @@ class MenuViewModel {
     
     public func addDataMenu() {
         dataMenu.append(Menu(descriptionText: "Bárbara Brigolin", descriptionImage: UIImage(systemName: "person") ?? UIImage()))
-        dataMenu.append(Menu(descriptionText: "Configurações de Tela", descriptionImage: UIImage(systemName: "sun.and.horizon") ?? UIImage()))
+        dataMenu.append(Menu(descriptionText: "Configurações de Tela", descriptionImage: UIImage(systemName: "gear") ?? UIImage()))
     }
     
     public var numberOfRowsInSection: Int {

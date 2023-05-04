@@ -12,12 +12,12 @@ class SettingsListTableViewCellScreen: UIView {
     lazy var iconImageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFit
+        image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
-        image.layer.borderWidth = 1
+        image.layer.borderWidth = 0.7
         image.layer.borderColor = UIColor.white.cgColor
-        image.layer.cornerRadius = 17.5
-        
+        image.layer.cornerRadius = 8
+        image.tintColor = .white
         return image
     }()
     
@@ -59,11 +59,11 @@ class SettingsListTableViewCellScreen: UIView {
         NSLayoutConstraint.activate([
             iconImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             iconImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            iconImageView.widthAnchor.constraint(equalToConstant: 35),
-            iconImageView.heightAnchor.constraint(equalToConstant: 35),
+            iconImageView.widthAnchor.constraint(equalToConstant: 30),
+            iconImageView.heightAnchor.constraint(equalToConstant: 30),
             
             descriptionLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            descriptionLabel.leadingAnchor.constraint(equalTo: self.iconImageView.trailingAnchor, constant: 5),
+            descriptionLabel.leadingAnchor.constraint(equalTo: self.iconImageView.trailingAnchor, constant: 10),
             
             flowLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             flowLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),

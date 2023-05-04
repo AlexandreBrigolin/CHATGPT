@@ -13,7 +13,8 @@ enum TypeMessage {
 }
 
 struct Message {
-    var message: String
+    var message: String?
     var date: Date
     var typeMessage: TypeMessage
+    var urlImage: String?
 }

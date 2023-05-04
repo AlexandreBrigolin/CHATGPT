@@ -24,4 +24,22 @@ class ChatService: ServiceManager {
             }
         })
     }
+    
+    func sendOpenAIRequestImage(text: String, completion: @escaping (Result<String, OpenAIError>) -> Void) {
+        token.sendImages(with: text) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let model):
+                    guard let text = model.data?.first?.url else {
+                        completion(.failure(.missingChoiseText))
+                        return
+                    }
+                    completion(.success(text))
+                case .failure(let error):
+                    completion(.failure(.apiError(error)))
+                }
+            }
+        }
+    }
+    
 }

@@ -13,7 +13,11 @@ class SettingsListTableViewCellScreen: UIView {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
-        image.image = UIImage(systemName: "person")
+        image.clipsToBounds = true
+        image.layer.borderWidth = 1
+        image.layer.borderColor = UIColor.white.cgColor
+        image.layer.cornerRadius = 17.5
+        
         return image
     }()
     
@@ -22,7 +26,6 @@ class SettingsListTableViewCellScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.text = "Bárbara"
         return label
     }()
     
@@ -56,8 +59,8 @@ class SettingsListTableViewCellScreen: UIView {
         NSLayoutConstraint.activate([
             iconImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             iconImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
-            iconImageView.heightAnchor.constraint(equalToConstant: 30),
-            iconImageView.widthAnchor.constraint(equalToConstant: 30),
+            iconImageView.widthAnchor.constraint(equalToConstant: 35),
+            iconImageView.heightAnchor.constraint(equalToConstant: 35),
             
             descriptionLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: self.iconImageView.trailingAnchor, constant: 5),

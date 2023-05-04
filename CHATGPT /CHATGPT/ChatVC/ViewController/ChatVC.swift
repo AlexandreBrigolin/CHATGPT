@@ -10,7 +10,7 @@ class ChatVC: UIViewController {
     
     var viewModel: ChatViewModel = ChatViewModel()
     var screen: ChatScreen?
-    var loadingView: LoadingView = LoadingView()
+    var loadingView: LoadingView?
     
     override func loadView() {
         self.screen = ChatScreen()
@@ -26,7 +26,7 @@ class ChatVC: UIViewController {
         screen?.delegate(delegate: self)
         screen?.configTableView(delegate: self, dataSource: self)
         viewModel.delegate(delegate: self)
-        loadingView = LoadingView()
+        loadingView = LoadingView(controller: self)
     }
     
     func vibrate() {
@@ -44,28 +44,27 @@ class ChatVC: UIViewController {
 
 extension ChatVC: ChatViewModelProtocol {
     func success() {
-        loadingView.hide()
+        loadingView?.hide()
         reloadTableView()
     }
     
     func error(message: String) {
-        loadingView.hide()
+        loadingView?.hide()
         reloadTableView()
     }
 }
 
 extension ChatVC: ChatScreenProtocol {
-    func searchImageMessage(text: String) {
-        loadingView.show()
-        viewModel.addMessage(message: text, type: .user)
-        reloadTableView()
-        viewModel.featchMessage(message: text)
+    
+    func requestStatus() {
+        viewModel.changeRequestStatus()
+        screen?.changeRequestStatus(status: viewModel.getRequestStatus)
     }
     
     func sendMessage(text: String) {
-        loadingView.show()
-        viewModel.addMessage(message: text, type: .user)
+        viewModel.addMessage(message: text, urlImage: nil, type: .user)
         reloadTableView()
+        loadingView?.show()
         viewModel.featchMessage(message: text)
     }
 }
@@ -84,9 +83,15 @@ extension ChatVC: UITableViewDelegate, UITableViewDataSource {
             cell?.setupCell(data: message)
             return cell ?? UITableViewCell()
         case .chatGPT:
-            let cell = tableView.dequeueReusableCell(withIdentifier: IncomingTextMessageTableViewCell.identifier, for: indexPath) as? IncomingTextMessageTableViewCell
-            cell?.setupCell(data: message)
-            return cell ?? UITableViewCell()
+            if message.message != nil {
+                let cell = tableView.dequeueReusableCell(withIdentifier: IncomingTextMessageTableViewCell.identifier, for: indexPath) as? IncomingTextMessageTableViewCell
+                cell?.setupCell(data: message)
+                return cell ?? UITableViewCell()
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: ImageTableViewCell.identifier, for: indexPath) as? ImageTableViewCell
+                cell?.setupCell(data: message)
+                return cell ?? UITableViewCell()
+            }
         }
     }
     

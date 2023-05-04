@@ -8,5 +8,5 @@
 import Foundation
 
 struct API {
-    static let authToken: String = "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"
+    static let authToken: String = "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"
 }

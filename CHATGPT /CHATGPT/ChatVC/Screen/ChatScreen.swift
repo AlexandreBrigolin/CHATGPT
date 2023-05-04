@@ -11,7 +11,7 @@ import AVFoundation
 
 protocol ChatScreenProtocol: AnyObject {
     func sendMessage(text: String)
-    func searchImageMessage(text: String)
+    func requestStatus()
 }
 
 class ChatScreen: UIView {
@@ -39,7 +39,7 @@ class ChatScreen: UIView {
         return view
     }()
     
-    lazy var sendButton:UIButton = {
+    lazy var sendButton: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.backgroundColor = .pink
@@ -55,20 +55,17 @@ class ChatScreen: UIView {
         return btn
     }()
     
-    lazy var searchImageButton:UIButton = {
+    lazy var statusButton: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.backgroundColor = .pink
-        btn.layer.cornerRadius = 22.5
+        btn.layer.cornerRadius = 16
         btn.layer.shadowColor = UIColor.pink.cgColor
         btn.layer.shadowRadius = 10
         btn.layer.shadowOffset = CGSize(width: 0, height: 5)
         btn.layer.shadowOpacity = 0.3
         btn.addTarget(self, action: #selector(self.tappedSearchImageButton), for: .touchUpInside)
-        btn.setImage(UIImage(systemName: "photo"), for: .normal)
         btn.imageView?.tintColor = .white
-        btn.isEnabled = false
-        btn.transform = .init(scaleX: 0.8, y: 0.8)
         return btn
     }()
     
@@ -89,6 +86,7 @@ class ChatScreen: UIView {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(OutgoingTextMessageTableViewCell.self, forCellReuseIdentifier: OutgoingTextMessageTableViewCell.identifier)
         tableView.register(IncomingTextMessageTableViewCell.self, forCellReuseIdentifier: IncomingTextMessageTableViewCell.identifier)
+        tableView.register(ImageTableViewCell.self, forCellReuseIdentifier: ImageTableViewCell.identifier)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.transform = CGAffineTransform(scaleX: 1, y: -1)
@@ -105,6 +103,7 @@ class ChatScreen: UIView {
         backgroundColor = .backGround
         addElements()
         configConstraints()
+        changeRequestStatus(status: .message)
     }
     
     required init?(coder: NSCoder) {
@@ -115,7 +114,7 @@ class ChatScreen: UIView {
         addSubview(tableView)
         addSubview(messageInputView)
         addSubview(sendButton)
-        addSubview(searchImageButton)
+        addSubview(statusButton)
         messageInputView.addSubview(messageBarView)
         messageInputView.addSubview(inputMessageTextField)
     }
@@ -143,13 +142,13 @@ class ChatScreen: UIView {
             sendButton.widthAnchor.constraint(equalToConstant: 55),
             sendButton.bottomAnchor.constraint(equalTo: messageBarView.bottomAnchor, constant: -10),
             
-            searchImageButton.trailingAnchor.constraint(equalTo: sendButton.leadingAnchor, constant: 5),
-            searchImageButton.heightAnchor.constraint(equalToConstant: 55),
-            searchImageButton.widthAnchor.constraint(equalToConstant: 55),
-            searchImageButton.bottomAnchor.constraint(equalTo: messageBarView.bottomAnchor, constant: -10),
+            statusButton.trailingAnchor.constraint(equalTo: sendButton.leadingAnchor, constant: -3),
+            statusButton.heightAnchor.constraint(equalToConstant: 40),
+            statusButton.widthAnchor.constraint(equalToConstant: 40),
+            statusButton.topAnchor.constraint(equalTo: messageBarView.topAnchor, constant: 2),
 
             inputMessageTextField.leadingAnchor.constraint(equalTo: messageBarView.leadingAnchor,constant: 20),
-            inputMessageTextField.trailingAnchor.constraint(equalTo: searchImageButton.leadingAnchor, constant: -5),
+            inputMessageTextField.trailingAnchor.constraint(equalTo: statusButton.leadingAnchor, constant: -5),
             inputMessageTextField.heightAnchor.constraint(equalToConstant: 45),
             inputMessageTextField.centerYAnchor.constraint(equalTo: messageBarView.centerYAnchor)
             
@@ -164,24 +163,14 @@ class ChatScreen: UIView {
     }
     
     @objc func tappedSearchImageButton() {
-        searchImageButton.touchAnimation()
-        playSound()
-        delegate?.searchImageMessage(text: inputMessageTextField.text ?? "")
-        pushImageMessage()
+        statusButton.touchAnimation()
+        delegate?.requestStatus()
     }
     
     private func pushMessage() {
         inputMessageTextField.text = ""
         sendButton.isEnabled = false
         sendButton.transform = .init(scaleX: 0.8, y: 0.8)
-        searchImageButton.transform = .init(scaleX: 0.8, y: 0.8)
-    }
-    
-    private func pushImageMessage() {
-        inputMessageTextField.text = ""
-        searchImageButton.isEnabled = false
-        searchImageButton.transform = .init(scaleX: 0.8, y: 0.8)
-        searchImageButton.transform = .init(scaleX: 0.8, y: 0.8)
     }
     
     private func playSound() {
@@ -199,6 +188,15 @@ class ChatScreen: UIView {
     
     public func reloadTableView() {
         tableView.reloadData()
+    }
+    
+    public func changeRequestStatus(status: RequestStatus) {
+        switch status {
+        case .message:
+            statusButton.setImage(UIImage(systemName: "photo"), for: .normal)
+        case .photo:
+            statusButton.setImage(UIImage(systemName: "ellipsis.message"), for: .normal)
+        }
     }
     
 }

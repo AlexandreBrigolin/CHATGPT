@@ -9,27 +9,66 @@ import UIKit
 
 class LoadingView {
     
-    let containerView = UIView()
-    let activityIndicator = UIActivityIndicatorView()
+    private let containerView = UIView()
+    private let activityIndicator = UIActivityIndicatorView()
+    private let messageLabel = UILabel()
     
-    public  func show() {
-        if let window = UIApplication.shared.keyWindow {
-            containerView.frame = window.frame
-            containerView.backgroundColor = UIColor(white: 0, alpha: 0.3)
+    enum IndicatorStyle {
+        case large, medium
+    }
+    
+    let controller: UIViewController
+    var backgroundColor: UIColor = UIColor(white: 0, alpha: 0.3)
+    var indicatorStyle: IndicatorStyle = .large
+    
+    init(controller: UIViewController) {
+        self.controller = controller
+    }
+    
+    public func show(message: String? = nil, indicatorStyle: IndicatorStyle = .large) {
+        containerView.frame = controller.view.frame
+        containerView.backgroundColor = backgroundColor
+        
+        activityIndicator.style = getIndicatorStyle(indicatorStyle)
+        activityIndicator.color = .gray
+        activityIndicator.startAnimating()
+        
+        containerView.addSubview(activityIndicator)
+        
+        if let message = message {
+            messageLabel.text = message
+            messageLabel.textColor = .gray
+            messageLabel.font = UIFont.systemFont(ofSize: 16)
+            messageLabel.textAlignment = .center
+            messageLabel.numberOfLines = 0
             
-            activityIndicator.style = UIActivityIndicatorView.Style.large
-            activityIndicator.color = .gray
-            activityIndicator.startAnimating()
+            containerView.addSubview(messageLabel)
+            messageLabel.translatesAutoresizingMaskIntoConstraints = false
             
-            containerView.addSubview(activityIndicator)
-            window.addSubview(containerView)
-            
-            activityIndicator.center = containerView.center
+            NSLayoutConstraint.activate([
+                messageLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+                messageLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: 40),
+                messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+                messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16)
+            ])
         }
+        
+        controller.view.addSubview(containerView)
+        
+        activityIndicator.center = containerView.center
     }
     
     public func hide() {
         activityIndicator.stopAnimating()
         containerView.removeFromSuperview()
+    }
+    
+    private func getIndicatorStyle(_ style: IndicatorStyle) -> UIActivityIndicatorView.Style {
+        switch style {
+        case .large:
+            return .large
+        case .medium:
+            return .medium
+        }
     }
 }

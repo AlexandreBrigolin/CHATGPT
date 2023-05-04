@@ -9,6 +9,8 @@ import UIKit
 
 class SettingsListTableViewCell: UITableViewCell {
     
+    static let identifier: String = "SettingsListTableViewCell"
+    
     lazy var screen: SettingsListTableViewCellScreen = {
         let view = SettingsListTableViewCellScreen()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -37,5 +39,10 @@ class SettingsListTableViewCell: UITableViewCell {
             self.screen.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             self.screen.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ])
+    }
+    
+    public func setupCell(data: Menu) {
+        screen.descriptionLabel.text = data.descriptionText
+        screen.iconImageView.image = data.descriptionImage
     }
 }

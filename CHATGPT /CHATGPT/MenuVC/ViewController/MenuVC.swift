@@ -10,6 +10,7 @@ import UIKit
 class MenuVC: UIViewController {
     
     var screen: MenuScreen?
+    var viewModel: MenuViewModel = MenuViewModel()
     
     override func loadView() {
         self.screen = MenuScreen()
@@ -19,6 +20,7 @@ class MenuVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.configTableView(delegate: self, dataSource: self)
+        viewModel.addDataMenu()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,11 +32,13 @@ class MenuVC: UIViewController {
 
 extension MenuVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return viewModel.numberOfRowsInSection
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: SettingsListTableViewCell.identifier, for: indexPath) as? SettingsListTableViewCell
+        cell?.setupCell(data: viewModel.dataMenu[indexPath.row])
+        return cell ?? UITableViewCell()
     }
     
     

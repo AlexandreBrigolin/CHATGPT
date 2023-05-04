@@ -21,9 +21,9 @@ class MenuScreen: UIView {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(SettingsListTableViewCell.self, forCellReuseIdentifier: SettingsListTableViewCell.identifier)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .blue
         return tableView
     }()
     

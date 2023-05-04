@@ -19,6 +19,12 @@ class ChatVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.addLogoToNavigationBarItem(image: UIImage(named: "BF_Logo") ?? UIImage())
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape.fill"), style: .done, target: self, action: #selector(confgTapped))
+        navigationItem.rightBarButtonItem?.tintColor = .white
+    }
+    
+    @objc func confgTapped(){
+        print(#function)
     }
     
     override func viewDidLoad() {

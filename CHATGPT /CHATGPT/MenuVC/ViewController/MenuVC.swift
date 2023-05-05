@@ -51,4 +51,13 @@ extension MenuVC: UITableViewDelegate, UITableViewDataSource {
         return 60
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let vc: ConfigProfileVC = ConfigProfileVC()
+            present(vc, animated: true)
+        } else {
+            print("proxima celula ")
+        }
+    }
+    
 }

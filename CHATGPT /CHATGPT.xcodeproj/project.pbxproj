@@ -13,6 +13,8 @@
 		0380C63C2A041F47008E3F25 /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C6362A041F47008E3F25 /* MenuScreen.swift */; };
 		0380C63D2A041F47008E3F25 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C6382A041F47008E3F25 /* MenuVC.swift */; };
 		0380C63F2A041F62008E3F25 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C63E2A041F62008E3F25 /* Menu.swift */; };
+		0380C6452A0541F9008E3F25 /* ConfigProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C6442A0541F9008E3F25 /* ConfigProfileScreen.swift */; };
+		0380C6472A05430C008E3F25 /* ConfigProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C6462A05430C008E3F25 /* ConfigProfileVC.swift */; };
 		34B996E82A03339600DCBE69 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B996E72A03339600DCBE69 /* ImageTableViewCell.swift */; };
 		34B996EB2A0334E300DCBE69 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B996E92A0334E300DCBE69 /* UIImageView+Extension.swift */; };
 		34B996EC2A0334E300DCBE69 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B996EA2A0334E300DCBE69 /* ImageCache.swift */; };
@@ -46,6 +48,8 @@
 		0380C6362A041F47008E3F25 /* MenuScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
 		0380C6382A041F47008E3F25 /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		0380C63E2A041F62008E3F25 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		0380C6442A0541F9008E3F25 /* ConfigProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigProfileScreen.swift; sourceTree = "<group>"; };
+		0380C6462A05430C008E3F25 /* ConfigProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigProfileVC.swift; sourceTree = "<group>"; };
 		34B996E72A03339600DCBE69 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		34B996E92A0334E300DCBE69 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		34B996EA2A0334E300DCBE69 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
@@ -137,6 +141,31 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		0380C6402A05413E008E3F25 /* ConfigProfile */ = {
+			isa = PBXGroup;
+			children = (
+				0380C6422A0541C0008E3F25 /* ViewController */,
+				0380C6412A0541B4008E3F25 /* Screen */,
+			);
+			path = ConfigProfile;
+			sourceTree = "<group>";
+		};
+		0380C6412A0541B4008E3F25 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				0380C6442A0541F9008E3F25 /* ConfigProfileScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		0380C6422A0541C0008E3F25 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0380C6462A05430C008E3F25 /* ConfigProfileVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		34B996E62A03336400DCBE69 /* ImageTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +198,7 @@
 				34DA65AC29AB743C00A14740 /* Service */,
 				34DA65A529AB73C200A14740 /* ChatVC */,
 				0380C62E2A041F47008E3F25 /* MenuVC */,
+				0380C6402A05413E008E3F25 /* ConfigProfile */,
 				3FC42EE02A01969F000F49B4 /* Load */,
 				34DA655629A7DA8900A14740 /* AppDelegate.swift */,
 				34DA655829A7DA8900A14740 /* SceneDelegate.swift */,
@@ -361,6 +391,7 @@
 			files = (
 				0380C63C2A041F47008E3F25 /* MenuScreen.swift in Sources */,
 				34DA65BD29AB847000A14740 /* UIViewController+Extension.swift in Sources */,
+				0380C6452A0541F9008E3F25 /* ConfigProfileScreen.swift in Sources */,
 				0380C63B2A041F47008E3F25 /* SettingsListTableViewCell.swift in Sources */,
 				34DA655B29A7DA8900A14740 /* ChatVC.swift in Sources */,
 				34DA65A829AB740600A14740 /* ChatScreen.swift in Sources */,
@@ -382,6 +413,7 @@
 				34DA65AE29AB745500A14740 /* ServiceManager.swift in Sources */,
 				34DA65C729ABF94A00A14740 /* Message.swift in Sources */,
 				0380C63F2A041F62008E3F25 /* Menu.swift in Sources */,
+				0380C6472A05430C008E3F25 /* ConfigProfileVC.swift in Sources */,
 				34B996EB2A0334E300DCBE69 /* UIImageView+Extension.swift in Sources */,
 				34DA655929A7DA8900A14740 /* SceneDelegate.swift in Sources */,
 				34DA65BB29AB847000A14740 /* UIColor+Extension.swift in Sources */,

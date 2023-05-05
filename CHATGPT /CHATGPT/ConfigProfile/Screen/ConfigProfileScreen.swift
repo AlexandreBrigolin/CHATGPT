@@ -6,8 +6,17 @@
 //
 
 import UIKit
+protocol ConfigProfileScreenProtocol: AnyObject {
+    func editProfileImageButton()
+}
 
 class ConfigProfileScreen: UIView {
+    
+    private weak var delegate: ConfigProfileScreenProtocol?
+    
+    public func delegate(delegate: ConfigProfileScreenProtocol?){
+        self.delegate = delegate
+    }
     
     lazy var profileImageView: UIImageView = {
         let image = UIImageView()
@@ -18,6 +27,8 @@ class ConfigProfileScreen: UIView {
         image.tintColor = .white
         image.clipsToBounds = true
         image.layer.cornerRadius = 50
+        image.layer.borderWidth = 1
+        image.layer.borderColor = UIColor.white.cgColor
         return image
     }()
     
@@ -27,17 +38,9 @@ class ConfigProfileScreen: UIView {
         button.setTitle("Editar", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(self.tappedEditButton), for: .touchUpInside)
         return button
     }()
-    
-//    lazy var nameLabel: UILabel = {
-//        let label = UILabel()
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.textColor = .white
-//        label.font = UIFont.boldSystemFont(ofSize: 16)
-//        label.text = "Bárbara Brigolin"
-//        return label
-//    }()
     
     lazy var editNameTextfield: UITextField = {
         let tf = UITextField()
@@ -62,10 +65,13 @@ class ConfigProfileScreen: UIView {
         setupConstraints()
     }
     
+    @objc private func tappedEditButton() {
+        self.delegate?.editProfileImageButton()
+    }
+    
     private func addSubView() {
         addSubview(profileImageView)
         addSubview(editButton)
-//        addSubview(nameLabel)
         addSubview(editNameTextfield)
     }
     
@@ -87,10 +93,6 @@ class ConfigProfileScreen: UIView {
             editButton.topAnchor.constraint(equalTo: self.profileImageView.bottomAnchor, constant: 2),
             editButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             editButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-        
-//            nameLabel.topAnchor.constraint(equalTo: self.editButton.bottomAnchor, constant: 15),
-//            nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-//            nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
             editNameTextfield.topAnchor.constraint(equalTo: self.editButton.bottomAnchor, constant: 30),
             editNameTextfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),

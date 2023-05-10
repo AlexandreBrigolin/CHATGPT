@@ -24,7 +24,7 @@ class DarkModeViewController: UIViewController {
         self.screen?.delegate(delegate: self)
         if let isNigth = defauls.value(forKey: nigthKey) {
             if isNigth as! Bool {
-                
+                switchToNigth()
             }
         }
     }
@@ -42,14 +42,14 @@ class DarkModeViewController: UIViewController {
 extension DarkModeViewController: DarkModeScreenProtocol {
     func tappedSwitchValueChanged(_ sender: Any) {
         print("Modo escuro ativado!")
-        if ((screen?.mySwitch.isOn) != nil) {
+        if screen?.mySwitch.isOn ?? false {
             switchToNigth()
-        }else {
+            defauls.set(true, forKey: nigthKey)
+        } else {
+            print("Modo claro ativado!")
             switchToDay()
+            defauls.set(false, forKey: nigthKey)
         }
     }
-    
-
-    
 }
 

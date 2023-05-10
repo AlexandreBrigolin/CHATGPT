@@ -67,8 +67,6 @@ class SettingsListTableViewCellScreen: UIView {
             
             flowLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             flowLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            
-            
         ])
     }
 }

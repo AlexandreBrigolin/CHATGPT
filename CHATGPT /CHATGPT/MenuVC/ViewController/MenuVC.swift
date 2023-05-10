@@ -51,4 +51,14 @@ extension MenuVC: UITableViewDelegate, UITableViewDataSource {
         return 60
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            
+        } else {
+            let vc: DarkModeViewController = DarkModeViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+
+    }
+    
 }

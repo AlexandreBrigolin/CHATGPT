@@ -33,6 +33,7 @@ class DarkModeScreen: UIView {
         
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .white
         addSubview(mySwitch)
         self.configConstraints()
     }

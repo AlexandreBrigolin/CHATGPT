@@ -29,14 +29,27 @@ class DarkModeViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.addLogoToNavigationBarItem(image: UIImage(named: "BF_Logo") ?? UIImage())
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrowshape.turn.up.backward"), style: .done, target: self, action: #selector(tappedBackButton))
+        navigationItem.leftBarButtonItem?.tintColor = .white
+    }
+    
+    @objc func tappedBackButton(){
+        print(#function)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     private func switchToNigth() {
         screen?.mySwitch.setOn(true, animated: false)
         overrideUserInterfaceStyle = .dark
+        screen?.backgroundColor = .black
     }
     
     private func switchToDay() {
         screen?.mySwitch.setOn(false, animated: false)
         overrideUserInterfaceStyle = .light
+        screen?.backgroundColor = .white
     }
 }
 extension DarkModeViewController: DarkModeScreenProtocol {

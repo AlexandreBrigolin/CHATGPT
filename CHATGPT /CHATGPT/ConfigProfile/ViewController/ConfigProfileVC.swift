@@ -12,6 +12,7 @@ class ConfigProfileVC: UIViewController {
     var screen: ConfigProfileScreen?
     var imagePicker: UIImagePickerController = UIImagePickerController()
     
+
     override func loadView() {
         self.screen = ConfigProfileScreen()
         view = screen
@@ -58,6 +59,12 @@ extension ConfigProfileVC: UIImagePickerControllerDelegate, UINavigationControll
 }
 
 extension ConfigProfileVC: ConfigProfileScreenProtocol {
+    func saveChangesButton() {
+
+        
+        print(#function)
+    }
+    
     func editProfileImageButton() {
         self.imagePicker.sourceType = .photoLibrary
         self.present(self.imagePicker, animated: true, completion: nil)

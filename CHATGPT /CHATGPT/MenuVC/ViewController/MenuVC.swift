@@ -11,7 +11,7 @@ class MenuVC: UIViewController {
     
     var screen: MenuScreen?
     var viewModel: MenuViewModel = MenuViewModel()
-    
+
     override func loadView() {
         self.screen = MenuScreen()
         view = screen
@@ -33,7 +33,6 @@ class MenuVC: UIViewController {
         print(#function)
         self.navigationController?.popViewController(animated: true)
     }
-
 }
 
 extension MenuVC: UITableViewDelegate, UITableViewDataSource {
@@ -59,5 +58,4 @@ extension MenuVC: UITableViewDelegate, UITableViewDataSource {
             print("proxima celula ")
         }
     }
-    
 }

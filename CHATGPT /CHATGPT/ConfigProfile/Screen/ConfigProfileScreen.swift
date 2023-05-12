@@ -8,6 +8,7 @@
 import UIKit
 protocol ConfigProfileScreenProtocol: AnyObject {
     func editProfileImageButton()
+    func saveChangesButton()
 }
 
 class ConfigProfileScreen: UIView {
@@ -35,7 +36,7 @@ class ConfigProfileScreen: UIView {
     lazy var editButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Editar", for: .normal)
+        button.setTitle("Editar Perfil", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(self.tappedEditButton), for: .touchUpInside)
@@ -58,6 +59,20 @@ class ConfigProfileScreen: UIView {
         return tf
     }()
     
+    lazy var saveChangesButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Alterar Nome", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(self.tappedSaveChangesButton), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc func tappedSaveChangesButton() {
+        self.delegate?.saveChangesButton()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .backGround
@@ -73,6 +88,7 @@ class ConfigProfileScreen: UIView {
         addSubview(profileImageView)
         addSubview(editButton)
         addSubview(editNameTextfield)
+        addSubview(saveChangesButton)
     }
     
     required init?(coder: NSCoder) {
@@ -85,6 +101,7 @@ class ConfigProfileScreen: UIView {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
+            
             profileImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 30),
             profileImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             profileImageView.heightAnchor.constraint(equalToConstant: 100),
@@ -98,6 +115,11 @@ class ConfigProfileScreen: UIView {
             editNameTextfield.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             editNameTextfield.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             editNameTextfield.heightAnchor.constraint(equalToConstant: 40),
+            
+            saveChangesButton.topAnchor.constraint(equalTo: self.editNameTextfield.bottomAnchor, constant: 20),
+            saveChangesButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
+            saveChangesButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30),
+            saveChangesButton.heightAnchor.constraint(equalToConstant: 40),
 
         ])
     }

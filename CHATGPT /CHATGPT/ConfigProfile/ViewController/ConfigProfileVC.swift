@@ -7,10 +7,21 @@
 
 import UIKit
 
+protocol ConfigProfileVCProtocoll: AnyObject {
+    func tappedSaveChangesButton(text: String, image: UIImage)
+}
+
 class ConfigProfileVC: UIViewController {
+    
+    private weak var delegate: ConfigProfileVCProtocoll?
+    
+    public func delegate(delegate: ConfigProfileVCProtocoll?){
+        self.delegate = delegate
+    }
     
     var screen: ConfigProfileScreen?
     var imagePicker: UIImagePickerController = UIImagePickerController()
+    
     
 
     override func loadView() {
@@ -60,8 +71,7 @@ extension ConfigProfileVC: UIImagePickerControllerDelegate, UINavigationControll
 
 extension ConfigProfileVC: ConfigProfileScreenProtocol {
     func saveChangesButton() {
-
-        
+        self.delegate?.tappedSaveChangesButton(text: screen?.editNameTextfield.text ?? "", image: screen?.profileImageView.image ?? UIImage())
         print(#function)
     }
     

@@ -53,9 +53,17 @@ extension MenuVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             let vc: ConfigProfileVC = ConfigProfileVC()
+            vc.delegate(delegate: self)
             self.navigationController?.pushViewController(vc, animated: true)
         } else {
             print("proxima celula ")
         }
     }
+}
+extension MenuVC: ConfigProfileVCProtocoll {
+    func tappedSaveChangesButton(text: String, image: UIImage) {
+        
+        print(#function)
+    }
+    
 }

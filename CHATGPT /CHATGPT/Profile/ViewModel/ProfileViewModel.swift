@@ -66,9 +66,12 @@ class ProfileViewModel: NSObject {
         return 1
     }
     
-    
     var loadCurrentUser: ProfileUser {
         return getDataUser ?? ProfileUser()
+    }
+    
+    public var heightForRowAt: CGFloat {
+        return 300
     }
     
 }

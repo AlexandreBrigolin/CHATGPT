@@ -18,7 +18,6 @@ class ProfileVC: UIViewController {
         view = screen
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate(delegate: self)
@@ -36,7 +35,6 @@ class ProfileVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
 }
 
 extension ProfileVC: ProfileViewModelDelegate {
@@ -45,13 +43,11 @@ extension ProfileVC: ProfileViewModelDelegate {
             self.screen?.configTableViewProtocols(delegate: self, dataSource: self)
             self.screen?.tableView.reloadData()
         }
-        print("deu bom")
     }
     
     func error(_message: String) {
         print("deu ruim \(_message)")
     }
-    
 }
 
 extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
@@ -66,8 +62,7 @@ extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
-        return 300
-        
+        return viewModel.heightForRowAt
     }
     
 }

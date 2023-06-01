@@ -9,7 +9,6 @@ import UIKit
 
 class ProfileScreen: UIView {
     
-    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -20,7 +19,6 @@ class ProfileScreen: UIView {
         return tableView
     }()
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .backGround
@@ -30,7 +28,6 @@ class ProfileScreen: UIView {
     
     private func addSubView() {
         addSubview(tableView)
-        
     }
     
     public func configTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){

@@ -28,7 +28,6 @@ class ProfileTableViewCellScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 15)
-        label.text = "Bárbara Brigolin"
         label.numberOfLines = 0
         return label
     }()
@@ -38,7 +37,6 @@ class ProfileTableViewCellScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 15)
-        label.text = "@barbarabrigolin"
         label.numberOfLines = 0
         return label
     }()
@@ -48,7 +46,6 @@ class ProfileTableViewCellScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 15)
-        label.text = "21 anos"
         return label
     }()
     
@@ -57,7 +54,6 @@ class ProfileTableViewCellScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 15)
-        label.text = "+55 34 99838-6237"
         return label
     }()
     

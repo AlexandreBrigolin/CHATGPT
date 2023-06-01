@@ -25,7 +25,7 @@ class ChatVC: UIViewController {
     
     @objc func confgTapped(){
         print(#function)
-        let vc: MenuVC = MenuVC()
+        let vc: ProfileVC = ProfileVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

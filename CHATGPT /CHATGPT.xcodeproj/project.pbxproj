@@ -13,6 +13,9 @@
 		0380C63C2A041F47008E3F25 /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C6362A041F47008E3F25 /* MenuScreen.swift */; };
 		0380C63D2A041F47008E3F25 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C6382A041F47008E3F25 /* MenuVC.swift */; };
 		0380C63F2A041F62008E3F25 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C63E2A041F62008E3F25 /* Menu.swift */; };
+		0380C6812A290D73008E3F25 /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C6802A290D73008E3F25 /* ProfileScreen.swift */; };
+		0380C6832A290DB4008E3F25 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C6822A290DB4008E3F25 /* ProfileVC.swift */; };
+		0380C6852A290DD4008E3F25 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C6842A290DD4008E3F25 /* ProfileViewModel.swift */; };
 		34B996E82A03339600DCBE69 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B996E72A03339600DCBE69 /* ImageTableViewCell.swift */; };
 		34B996EB2A0334E300DCBE69 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B996E92A0334E300DCBE69 /* UIImageView+Extension.swift */; };
 		34B996EC2A0334E300DCBE69 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B996EA2A0334E300DCBE69 /* ImageCache.swift */; };
@@ -46,6 +49,9 @@
 		0380C6362A041F47008E3F25 /* MenuScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
 		0380C6382A041F47008E3F25 /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		0380C63E2A041F62008E3F25 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		0380C6802A290D73008E3F25 /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		0380C6822A290DB4008E3F25 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		0380C6842A290DD4008E3F25 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		34B996E72A03339600DCBE69 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		34B996E92A0334E300DCBE69 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		34B996EA2A0334E300DCBE69 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
@@ -137,6 +143,40 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		0380C67C2A290D17008E3F25 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				0380C67F2A290D4C008E3F25 /* ViewModel */,
+				0380C67E2A290D41008E3F25 /* ViewController */,
+				0380C67D2A290D37008E3F25 /* Screen */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		0380C67D2A290D37008E3F25 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				0380C6802A290D73008E3F25 /* ProfileScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		0380C67E2A290D41008E3F25 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0380C6822A290DB4008E3F25 /* ProfileVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0380C67F2A290D4C008E3F25 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0380C6842A290DD4008E3F25 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		34B996E62A03336400DCBE69 /* ImageTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +208,7 @@
 				34DA65B129AB847000A14740 /* Utils */,
 				34DA65AC29AB743C00A14740 /* Service */,
 				34DA65A529AB73C200A14740 /* ChatVC */,
+				0380C67C2A290D17008E3F25 /* Profile */,
 				0380C62E2A041F47008E3F25 /* MenuVC */,
 				3FC42EE02A01969F000F49B4 /* Load */,
 				34DA655629A7DA8900A14740 /* AppDelegate.swift */,
@@ -361,6 +402,7 @@
 			files = (
 				0380C63C2A041F47008E3F25 /* MenuScreen.swift in Sources */,
 				34DA65BD29AB847000A14740 /* UIViewController+Extension.swift in Sources */,
+				0380C6852A290DD4008E3F25 /* ProfileViewModel.swift in Sources */,
 				0380C63B2A041F47008E3F25 /* SettingsListTableViewCell.swift in Sources */,
 				34DA655B29A7DA8900A14740 /* ChatVC.swift in Sources */,
 				34DA65A829AB740600A14740 /* ChatScreen.swift in Sources */,
@@ -375,12 +417,14 @@
 				34DA65AB29AB742200A14740 /* ChatViewModel.swift in Sources */,
 				34DA65B029AB755800A14740 /* ChatService.swift in Sources */,
 				34DA65BA29AB847000A14740 /* UIFont+Extension.swift in Sources */,
+				0380C6832A290DB4008E3F25 /* ProfileVC.swift in Sources */,
 				0380C63A2A041F47008E3F25 /* SettingsListTableViewCellScreen.swift in Sources */,
 				34DA65C429ABF2AE00A14740 /* IncomingTextMessageTableViewCell.swift in Sources */,
 				0380C6392A041F47008E3F25 /* MenuViewModel.swift in Sources */,
 				0380C63D2A041F47008E3F25 /* MenuVC.swift in Sources */,
 				34DA65AE29AB745500A14740 /* ServiceManager.swift in Sources */,
 				34DA65C729ABF94A00A14740 /* Message.swift in Sources */,
+				0380C6812A290D73008E3F25 /* ProfileScreen.swift in Sources */,
 				0380C63F2A041F62008E3F25 /* Menu.swift in Sources */,
 				34B996EB2A0334E300DCBE69 /* UIImageView+Extension.swift in Sources */,
 				34DA655929A7DA8900A14740 /* SceneDelegate.swift in Sources */,

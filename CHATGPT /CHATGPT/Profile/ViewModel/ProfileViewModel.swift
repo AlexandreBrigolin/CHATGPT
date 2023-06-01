@@ -61,4 +61,14 @@ class ProfileViewModel: NSObject {
             }
         }
     }
+    
+    public var numberOfRowsInSection: Int {
+        return 1
+    }
+    
+    
+    var loadCurrentUser: ProfileUser {
+        return getDataUser ?? ProfileUser()
+    }
+    
 }

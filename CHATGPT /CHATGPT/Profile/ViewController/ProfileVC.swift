@@ -21,8 +21,8 @@ class ProfileVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate(delegate: self)
         viewModel.fetch(.alamofireRequest)
-        setupDataUser()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +41,10 @@ class ProfileVC: UIViewController {
 
 extension ProfileVC: ProfileViewModelDelegate {
     func success() {
+        DispatchQueue.main.async {
+            self.screen?.configTableViewProtocols(delegate: self, dataSource: self)
+            self.screen?.tableView.reloadData()
+        }
         print("deu bom")
     }
     
@@ -48,6 +52,22 @@ extension ProfileVC: ProfileViewModelDelegate {
         print("deu ruim \(_message)")
     }
     
+}
+
+extension ProfileVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       return viewModel.numberOfRowsInSection
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as? ProfileTableViewCell
+        cell?.setupCell(data: viewModel.loadCurrentUser)
+        return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
+        return 300
+        
+    }
     
 }

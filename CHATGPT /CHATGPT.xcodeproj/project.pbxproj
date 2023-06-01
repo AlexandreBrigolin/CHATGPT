@@ -20,6 +20,8 @@
 		0380C6892A2920CF008E3F25 /* GenericService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C6882A2920CF008E3F25 /* GenericService.swift */; };
 		0380C68B2A2921A7008E3F25 /* ProfileUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C68A2A2921A7008E3F25 /* ProfileUser.swift */; };
 		0380C68D2A2922EC008E3F25 /* userProfile.json in Resources */ = {isa = PBXBuildFile; fileRef = 0380C68C2A2922EC008E3F25 /* userProfile.json */; };
+		0380C6902A2933C8008E3F25 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C68F2A2933C8008E3F25 /* ProfileTableViewCell.swift */; };
+		0380C6932A293405008E3F25 /* ProfileTableViewCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C6922A293405008E3F25 /* ProfileTableViewCellScreen.swift */; };
 		34B996E82A03339600DCBE69 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B996E72A03339600DCBE69 /* ImageTableViewCell.swift */; };
 		34B996EB2A0334E300DCBE69 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B996E92A0334E300DCBE69 /* UIImageView+Extension.swift */; };
 		34B996EC2A0334E300DCBE69 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B996EA2A0334E300DCBE69 /* ImageCache.swift */; };
@@ -61,6 +63,8 @@
 		0380C6882A2920CF008E3F25 /* GenericService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericService.swift; sourceTree = "<group>"; };
 		0380C68A2A2921A7008E3F25 /* ProfileUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUser.swift; sourceTree = "<group>"; };
 		0380C68C2A2922EC008E3F25 /* userProfile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = userProfile.json; sourceTree = "<group>"; };
+		0380C68F2A2933C8008E3F25 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		0380C6922A293405008E3F25 /* ProfileTableViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCellScreen.swift; sourceTree = "<group>"; };
 		13B72304FA9AEE0FDE653E1D /* Pods-CHATGPT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHATGPT.debug.xcconfig"; path = "Target Support Files/Pods-CHATGPT/Pods-CHATGPT.debug.xcconfig"; sourceTree = "<group>"; };
 		34B996E72A03339600DCBE69 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		34B996E92A0334E300DCBE69 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 		0380C67C2A290D17008E3F25 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				0380C68E2A293303008E3F25 /* Cell */,
 				0380C67F2A290D4C008E3F25 /* ViewModel */,
 				0380C67E2A290D41008E3F25 /* ViewController */,
 				0380C67D2A290D37008E3F25 /* Screen */,
@@ -188,6 +193,23 @@
 				0380C6842A290DD4008E3F25 /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0380C68E2A293303008E3F25 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0380C6912A2933EB008E3F25 /* Screen */,
+				0380C68F2A2933C8008E3F25 /* ProfileTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		0380C6912A2933EB008E3F25 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				0380C6922A293405008E3F25 /* ProfileTableViewCellScreen.swift */,
+			);
+			path = Screen;
 			sourceTree = "<group>";
 		};
 		1BFCAEE82DC61922FCF2F6C0 /* Frameworks */ = {
@@ -481,9 +503,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0380C6932A293405008E3F25 /* ProfileTableViewCellScreen.swift in Sources */,
 				0380C63C2A041F47008E3F25 /* MenuScreen.swift in Sources */,
 				34DA65BD29AB847000A14740 /* UIViewController+Extension.swift in Sources */,
 				0380C6852A290DD4008E3F25 /* ProfileViewModel.swift in Sources */,
+				0380C6902A2933C8008E3F25 /* ProfileTableViewCell.swift in Sources */,
 				0380C63B2A041F47008E3F25 /* SettingsListTableViewCell.swift in Sources */,
 				34DA655B29A7DA8900A14740 /* ChatVC.swift in Sources */,
 				34DA65A829AB740600A14740 /* ChatScreen.swift in Sources */,

@@ -17,6 +17,9 @@
 		0380C6832A290DB4008E3F25 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C6822A290DB4008E3F25 /* ProfileVC.swift */; };
 		0380C6852A290DD4008E3F25 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C6842A290DD4008E3F25 /* ProfileViewModel.swift */; };
 		0380C6872A291FA8008E3F25 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C6862A291FA8008E3F25 /* ProfileService.swift */; };
+		0380C6892A2920CF008E3F25 /* GenericService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C6882A2920CF008E3F25 /* GenericService.swift */; };
+		0380C68B2A2921A7008E3F25 /* ProfileUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0380C68A2A2921A7008E3F25 /* ProfileUser.swift */; };
+		0380C68D2A2922EC008E3F25 /* userProfile.json in Resources */ = {isa = PBXBuildFile; fileRef = 0380C68C2A2922EC008E3F25 /* userProfile.json */; };
 		34B996E82A03339600DCBE69 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B996E72A03339600DCBE69 /* ImageTableViewCell.swift */; };
 		34B996EB2A0334E300DCBE69 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B996E92A0334E300DCBE69 /* UIImageView+Extension.swift */; };
 		34B996EC2A0334E300DCBE69 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B996EA2A0334E300DCBE69 /* ImageCache.swift */; };
@@ -55,6 +58,9 @@
 		0380C6822A290DB4008E3F25 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		0380C6842A290DD4008E3F25 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		0380C6862A291FA8008E3F25 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		0380C6882A2920CF008E3F25 /* GenericService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericService.swift; sourceTree = "<group>"; };
+		0380C68A2A2921A7008E3F25 /* ProfileUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUser.swift; sourceTree = "<group>"; };
+		0380C68C2A2922EC008E3F25 /* userProfile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = userProfile.json; sourceTree = "<group>"; };
 		13B72304FA9AEE0FDE653E1D /* Pods-CHATGPT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CHATGPT.debug.xcconfig"; path = "Target Support Files/Pods-CHATGPT/Pods-CHATGPT.debug.xcconfig"; sourceTree = "<group>"; };
 		34B996E72A03339600DCBE69 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		34B996E92A0334E300DCBE69 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
@@ -233,6 +239,7 @@
 				34DA655F29A7DA8C00A14740 /* Assets.xcassets */,
 				34DA656129A7DA8C00A14740 /* LaunchScreen.storyboard */,
 				34DA656429A7DA8C00A14740 /* Info.plist */,
+				0380C68C2A2922EC008E3F25 /* userProfile.json */,
 			);
 			path = CHATGPT;
 			sourceTree = "<group>";
@@ -271,6 +278,7 @@
 				34DA65AD29AB745500A14740 /* ServiceManager.swift */,
 				34DA65AF29AB755800A14740 /* ChatService.swift */,
 				0380C6862A291FA8008E3F25 /* ProfileService.swift */,
+				0380C6882A2920CF008E3F25 /* GenericService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -321,6 +329,7 @@
 			children = (
 				0380C63E2A041F62008E3F25 /* Menu.swift */,
 				34DA65C629ABF94A00A14740 /* Message.swift */,
+				0380C68A2A2921A7008E3F25 /* ProfileUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -347,7 +356,6 @@
 				13B72304FA9AEE0FDE653E1D /* Pods-CHATGPT.debug.xcconfig */,
 				69EC05F282C9FB7F06D494B7 /* Pods-CHATGPT.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -401,7 +409,7 @@
 			);
 			mainGroup = 34DA654A29A7DA8900A14740;
 			packageReferences = (
-				34DA657D29A8CEE100A14740 /* XCRemoteSwiftPackageReference "OpenAISwift.git" */,
+				34DA657D29A8CEE100A14740 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
 			);
 			productRefGroup = 34DA655429A7DA8900A14740 /* Products */;
 			projectDirPath = "";
@@ -417,6 +425,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0380C68D2A2922EC008E3F25 /* userProfile.json in Resources */,
 				34DA65BF29AB847000A14740 /* send.wav in Resources */,
 				34DA656329A7DA8C00A14740 /* LaunchScreen.storyboard in Resources */,
 				34DA656029A7DA8C00A14740 /* Assets.xcassets in Resources */,
@@ -492,6 +501,7 @@
 				0380C6832A290DB4008E3F25 /* ProfileVC.swift in Sources */,
 				0380C63A2A041F47008E3F25 /* SettingsListTableViewCellScreen.swift in Sources */,
 				34DA65C429ABF2AE00A14740 /* IncomingTextMessageTableViewCell.swift in Sources */,
+				0380C6892A2920CF008E3F25 /* GenericService.swift in Sources */,
 				0380C6392A041F47008E3F25 /* MenuViewModel.swift in Sources */,
 				0380C63D2A041F47008E3F25 /* MenuVC.swift in Sources */,
 				34DA65AE29AB745500A14740 /* ServiceManager.swift in Sources */,
@@ -499,6 +509,7 @@
 				0380C6812A290D73008E3F25 /* ProfileScreen.swift in Sources */,
 				0380C63F2A041F62008E3F25 /* Menu.swift in Sources */,
 				34B996EB2A0334E300DCBE69 /* UIImageView+Extension.swift in Sources */,
+				0380C68B2A2921A7008E3F25 /* ProfileUser.swift in Sources */,
 				34DA655929A7DA8900A14740 /* SceneDelegate.swift in Sources */,
 				34DA65BB29AB847000A14740 /* UIColor+Extension.swift in Sources */,
 				0380C6872A291FA8008E3F25 /* ProfileService.swift in Sources */,
@@ -713,7 +724,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		34DA657D29A8CEE100A14740 /* XCRemoteSwiftPackageReference "OpenAISwift.git" */ = {
+		34DA657D29A8CEE100A14740 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adamrushy/OpenAISwift.git";
 			requirement = {
@@ -726,7 +737,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		34DA657E29A8CEE100A14740 /* OpenAISwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 34DA657D29A8CEE100A14740 /* XCRemoteSwiftPackageReference "OpenAISwift.git" */;
+			package = 34DA657D29A8CEE100A14740 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
 			productName = OpenAISwift;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -10,6 +10,8 @@ import UIKit
 class ProfileVC: UIViewController {
     
     var screen: ProfileScreen?
+    var viewModel: ProfileViewModel = ProfileViewModel()
+    var data: ProfileUser?
     
     override func loadView() {
         self.screen = ProfileScreen()
@@ -19,7 +21,8 @@ class ProfileVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        viewModel.fetch(.alamofireRequest)
+        setupDataUser()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,5 +35,19 @@ class ProfileVC: UIViewController {
         print(#function)
         self.navigationController?.popViewController(animated: true)
     }
+    
+    
+}
+
+extension ProfileVC: ProfileViewModelDelegate {
+    func success() {
+        print("deu bom")
+    }
+    
+    func error(_message: String) {
+        print("deu ruim \(_message)")
+    }
+    
+    
     
 }

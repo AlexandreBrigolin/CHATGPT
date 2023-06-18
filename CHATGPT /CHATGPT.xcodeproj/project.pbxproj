@@ -36,10 +36,9 @@
 		34DA65C229ABA76800A14740 /* OutgoingTextMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DA65C129ABA76800A14740 /* OutgoingTextMessageTableViewCell.swift */; };
 		34DA65C429ABF2AE00A14740 /* IncomingTextMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DA65C329ABF2AE00A14740 /* IncomingTextMessageTableViewCell.swift */; };
 		34DA65C729ABF94A00A14740 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DA65C629ABF94A00A14740 /* Message.swift */; };
+		3F3705492A3DF0100040ED0A /* DarkModeCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3705482A3DF0100040ED0A /* DarkModeCellScreen.swift */; };
+		3F37054B2A3DF0330040ED0A /* DarkModeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F37054A2A3DF0330040ED0A /* DarkModeTableViewCell.swift */; };
 		3FC42EE22A0196E1000F49B4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC42EE12A0196E1000F49B4 /* LoadingView.swift */; };
-		3FC42F642A0BE094000F49B4 /* DarkModeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC42F632A0BE093000F49B4 /* DarkModeScreen.swift */; };
-		3FC42F662A0BE0B9000F49B4 /* DarkModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC42F652A0BE0B9000F49B4 /* DarkModeViewController.swift */; };
-		3FC42F682A0BE0D4000F49B4 /* DarkModeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC42F672A0BE0D4000F49B4 /* DarkModeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,10 +72,9 @@
 		34DA65C129ABA76800A14740 /* OutgoingTextMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingTextMessageTableViewCell.swift; sourceTree = "<group>"; };
 		34DA65C329ABF2AE00A14740 /* IncomingTextMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingTextMessageTableViewCell.swift; sourceTree = "<group>"; };
 		34DA65C629ABF94A00A14740 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		3F3705482A3DF0100040ED0A /* DarkModeCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeCellScreen.swift; sourceTree = "<group>"; };
+		3F37054A2A3DF0330040ED0A /* DarkModeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeTableViewCell.swift; sourceTree = "<group>"; };
 		3FC42EE12A0196E1000F49B4 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		3FC42F632A0BE093000F49B4 /* DarkModeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeScreen.swift; sourceTree = "<group>"; };
-		3FC42F652A0BE0B9000F49B4 /* DarkModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeViewController.swift; sourceTree = "<group>"; };
-		3FC42F672A0BE0D4000F49B4 /* DarkModeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +111,8 @@
 		0380C6312A041F47008E3F25 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				0380C6322A041F47008E3F25 /* Screen */,
-				0380C6342A041F47008E3F25 /* SettingsListTableViewCell.swift */,
+				3F3705462A3DEF330040ED0A /* DarkModeCell */,
+				3F3705452A3DEEFC0040ED0A /* SettingsCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -174,7 +172,6 @@
 				34DA65B129AB847000A14740 /* Utils */,
 				34DA65AC29AB743C00A14740 /* Service */,
 				34DA65A529AB73C200A14740 /* ChatVC */,
-				3FC42F5F2A0BDF2F000F49B4 /* DarkModeVC */,
 				0380C62E2A041F47008E3F25 /* MenuVC */,
 				3FC42EE02A01969F000F49B4 /* Load */,
 				34DA655629A7DA8900A14740 /* AppDelegate.swift */,
@@ -273,6 +270,32 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3F3705452A3DEEFC0040ED0A /* SettingsCell */ = {
+			isa = PBXGroup;
+			children = (
+				0380C6322A041F47008E3F25 /* Screen */,
+				0380C6342A041F47008E3F25 /* SettingsListTableViewCell.swift */,
+			);
+			path = SettingsCell;
+			sourceTree = "<group>";
+		};
+		3F3705462A3DEF330040ED0A /* DarkModeCell */ = {
+			isa = PBXGroup;
+			children = (
+				3F3705472A3DEF470040ED0A /* Screen */,
+				3F37054A2A3DF0330040ED0A /* DarkModeTableViewCell.swift */,
+			);
+			path = DarkModeCell;
+			sourceTree = "<group>";
+		};
+		3F3705472A3DEF470040ED0A /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				3F3705482A3DF0100040ED0A /* DarkModeCellScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
 		3FC42EE02A01969F000F49B4 /* Load */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,40 +310,6 @@
 				34DA655A29A7DA8900A14740 /* ChatVC.swift */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		3FC42F5F2A0BDF2F000F49B4 /* DarkModeVC */ = {
-			isa = PBXGroup;
-			children = (
-				3FC42F622A0BDF75000F49B4 /* Screen */,
-				3FC42F612A0BDF60000F49B4 /* ViewController */,
-				3FC42F602A0BDF50000F49B4 /* ViewModel */,
-			);
-			path = DarkModeVC;
-			sourceTree = "<group>";
-		};
-		3FC42F602A0BDF50000F49B4 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				3FC42F672A0BE0D4000F49B4 /* DarkModeViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		3FC42F612A0BDF60000F49B4 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				3FC42F652A0BE0B9000F49B4 /* DarkModeViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		3FC42F622A0BDF75000F49B4 /* Screen */ = {
-			isa = PBXGroup;
-			children = (
-				3FC42F632A0BE093000F49B4 /* DarkModeScreen.swift */,
-			);
-			path = Screen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,8 +391,8 @@
 			files = (
 				0380C63C2A041F47008E3F25 /* MenuScreen.swift in Sources */,
 				34DA65BD29AB847000A14740 /* UIViewController+Extension.swift in Sources */,
+				3F37054B2A3DF0330040ED0A /* DarkModeTableViewCell.swift in Sources */,
 				0380C63B2A041F47008E3F25 /* SettingsListTableViewCell.swift in Sources */,
-				3FC42F682A0BE0D4000F49B4 /* DarkModeViewModel.swift in Sources */,
 				34DA655B29A7DA8900A14740 /* ChatVC.swift in Sources */,
 				34DA65A829AB740600A14740 /* ChatScreen.swift in Sources */,
 				34B996E82A03339600DCBE69 /* ImageTableViewCell.swift in Sources */,
@@ -422,13 +411,12 @@
 				0380C6392A041F47008E3F25 /* MenuViewModel.swift in Sources */,
 				0380C63D2A041F47008E3F25 /* MenuVC.swift in Sources */,
 				34DA65AE29AB745500A14740 /* ServiceManager.swift in Sources */,
-				3FC42F662A0BE0B9000F49B4 /* DarkModeViewController.swift in Sources */,
 				34DA65C729ABF94A00A14740 /* Message.swift in Sources */,
+				3F3705492A3DF0100040ED0A /* DarkModeCellScreen.swift in Sources */,
 				0380C63F2A041F62008E3F25 /* Menu.swift in Sources */,
 				34B996EB2A0334E300DCBE69 /* UIImageView+Extension.swift in Sources */,
 				34DA655929A7DA8900A14740 /* SceneDelegate.swift in Sources */,
 				34DA65BB29AB847000A14740 /* UIColor+Extension.swift in Sources */,
-				3FC42F642A0BE094000F49B4 /* DarkModeScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

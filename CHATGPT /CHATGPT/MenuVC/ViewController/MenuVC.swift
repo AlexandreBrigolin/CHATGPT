@@ -7,20 +7,31 @@
 
 import UIKit
 
+enum NameCell: Int {
+    case person = 0
+    case configuration = 1
+    case darkMode = 2
+}
+
 class MenuVC: UIViewController {
     
     var screen: MenuScreen?
     var viewModel: MenuViewModel = MenuViewModel()
+    let defauls = UserDefaults.standard
+    var nigthKey: String = "isNigth"
     
     override func loadView() {
         self.screen = MenuScreen()
         view = screen
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         screen?.configTableView(delegate: self, dataSource: self)
         viewModel.addDataMenu()
+        //        if let isNigth = defauls.value(forKey: nigthKey) {
+        //            if isNigth as! Bool {
+        //                switchToNigth()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,7 +44,8 @@ class MenuVC: UIViewController {
         print(#function)
         self.navigationController?.popViewController(animated: true)
     }
-
+    
+    
 }
 
 extension MenuVC: UITableViewDelegate, UITableViewDataSource {
@@ -42,23 +54,25 @@ extension MenuVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SettingsListTableViewCell.identifier, for: indexPath) as? SettingsListTableViewCell
-        cell?.setupCell(data: viewModel.dataMenu[indexPath.row])
-        return cell ?? UITableViewCell()
+        switch NameCell(rawValue: indexPath.row) {
+        case .person:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SettingsListTableViewCell.identifier, for: indexPath) as? SettingsListTableViewCell
+            cell?.setupCell(data: viewModel.dataMenu[indexPath.row])
+            return cell ?? UITableViewCell()
+        case .configuration:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SettingsListTableViewCell.identifier, for: indexPath) as? SettingsListTableViewCell
+            cell?.setupCell(data: viewModel.dataMenu[indexPath.row])
+            return cell ?? UITableViewCell()
+        case .darkMode:
+            let cell = tableView.dequeueReusableCell(withIdentifier: DarkModeTableViewCell.identifier, for: indexPath) as? DarkModeTableViewCell
+            cell?.setupCell(data: viewModel.dataMenu[indexPath.row])
+            return cell ?? UITableViewCell()
+        default:
+            return UITableViewCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            
-        } else {
-            let vc: DarkModeViewController = DarkModeViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
-
-    }
-    
 }

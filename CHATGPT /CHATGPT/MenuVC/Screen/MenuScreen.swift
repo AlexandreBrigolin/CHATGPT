@@ -22,6 +22,7 @@ class MenuScreen: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(SettingsListTableViewCell.self, forCellReuseIdentifier: SettingsListTableViewCell.identifier)
+        tableView.register(DarkModeTableViewCell.self, forCellReuseIdentifier: DarkModeTableViewCell.identifier)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         return tableView

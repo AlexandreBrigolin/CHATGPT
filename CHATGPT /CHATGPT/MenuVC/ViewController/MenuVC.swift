@@ -17,8 +17,6 @@ class MenuVC: UIViewController {
     
     var screen: MenuScreen?
     var viewModel: MenuViewModel = MenuViewModel()
-    let defauls = UserDefaults.standard
-    var nigthKey: String = "isNigth"
     
     override func loadView() {
         self.screen = MenuScreen()
@@ -29,9 +27,6 @@ class MenuVC: UIViewController {
         super.viewDidLoad()
         screen?.configTableView(delegate: self, dataSource: self)
         viewModel.addDataMenu()
-        //        if let isNigth = defauls.value(forKey: nigthKey) {
-        //            if isNigth as! Bool {
-        //                switchToNigth()
     }
     
     override func viewWillAppear(_ animated: Bool) {
